@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEUROLAB — лаборатория будущего</title>
+  <meta name="description" content="NEUROLAB — AI-эксперименты, инструменты, идеи и технологии будущего.">
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=iHuW8pPU0FbbMKDA9NOYEtJrZTBeJokuM6SWn8m_3kSlFS-qEjwEZss-g7vyrnKL1HIqyI4L-mBzLghS0-7TVWowmchUNgrzhaR4UDg-jfTmMsMG1lA6475I6ExmJRAnVk_icyovMvtC8NE8MdVWdVLKIvgbDVN29RES4jB3dxF1mRorAvVZE6-cFqxgVIbMrMShm_eUaJGrTadmBCFY2HFSpipXcGYCZZ0MSWvI7i-DFRMAMliYESc5cBRCBQ5vS2xyd42U5010dfnQeVLyW9Cdq8QwKCtFSfg-sAegbcEFTK6ZstUDwIn-BSs7-VJt" charset="UTF-8"></script><style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #070b14;
+      color: #eef4ff;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, 92%); margin: auto; }
+
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(7,11,20,.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #1b2940;
+    }
+    nav {
+      min-height: 70px; display: flex; align-items: center;
+      justify-content: space-between; gap: 20px;
+    }
+    .logo { font-size: 24px; font-weight: 800; letter-spacing: 2px; }
+    .logo span { color: #65d9ff; }
+    .links { display: flex; gap: 22px; flex-wrap: wrap; }
+    .links a { color: #aebbd0; transition: .2s; }
+    .links a:hover { color: #65d9ff; }
+
+    .hero {
+      padding: 90px 0 70px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 50% 20%, #15355c 0, transparent 35%),
+        radial-gradient(circle at 80% 80%, #25124b 0, transparent 30%);
+    }
+    .badge {
+      display: inline-block; padding: 7px 14px; border: 1px solid #29486c;
+      border-radius: 999px; color: #65d9ff; background: #0c1625; font-size: 14px;
+      margin-bottom: 20px;
+    }
+    h1 { font-size: clamp(42px, 8vw, 82px); line-height: 1; margin-bottom: 20px; }
+    .hero p { max-width: 700px; margin: auto; color: #aebbd0; font-size: 19px; }
+    .buttons { margin-top: 30px; display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; padding: 13px 22px; border-radius: 12px;
+      border: 1px solid #31516f; background: #101b2b; font-weight: 700;
+    }
+    .btn.primary { background: #65d9ff; color: #06101b; border-color: #65d9ff; }
+
+    section { padding: 70px 0; }
+    .section-title { font-size: 34px; margin-bottom: 10px; }
+    .section-subtitle { color: #8f9eb4; margin-bottom: 28px; }
+
+    .grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+    }
+    .card {
+      background: linear-gradient(145deg, #0e1726, #0a111d);
+      border: 1px solid #1c2b41; border-radius: 18px; padding: 24px;
+      min-height: 190px; transition: transform .2s, border-color .2s;
+    }
+    .card:hover { transform: translateY(-4px); border-color: #3c7095; }
+    .icon { font-size: 34px; margin-bottom: 12px; }
+    .card h3 { margin-bottom: 8px; font-size: 21px; }
+    .card p { color: #96a5bb; }
+
+    .experiment {
+      display: grid; grid-template-columns: 1.2fr 1fr; gap: 25px; align-items: center;
+    }
+    .visual {
+      min-height: 330px; border-radius: 22px; border: 1px solid #243954;
+      background:
+        radial-gradient(circle, #3b7ca0 0 2px, transparent 3px) 0 0/35px 35px,
+        radial-gradient(circle at 50% 50%, #173c60, #080e18 58%);
+      display: grid; place-items: center; font-size: 90px;
+      box-shadow: 0 0 60px rgba(60,170,220,.12);
+    }
+    .prompt {
+      margin-top: 18px; padding: 16px; background: #060b13;
+      border: 1px solid #1d2a3d; border-radius: 12px; color: #9edfff;
+      font-family: monospace; font-size: 14px;
+    }
+
+    .toolbox {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    }
+    .tool {
+      background: #0d1624; border: 1px solid #1c2b41; border-radius: 18px; padding: 22px;
+    }
+    textarea, input {
+      width: 100%; margin-top: 12px; padding: 13px;
+      border-radius: 10px; border: 1px solid #293a52;
+      background: #070d16; color: white; outline: none;
+    }
+    textarea { min-height: 120px; resize: vertical; }
+    .tool button {
+      margin-top: 12px; padding: 11px 16px; border: 0; border-radius: 10px;
+      background: #65d9ff; color: #06101b; font-weight: 700; cursor: pointer;
+    }
+    #ideaResult { margin-top: 14px; color: #b9c9df; min-height: 45px; }
+
+    .articles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .article {
+      border: 1px solid #1c2b41; border-radius: 16px; padding: 20px;
+      background: #0c1421;
+    }
+    .article small { color: #65d9ff; }
+    .article h3 { margin: 8px 0; }
+    .article p { color: #96a5bb; }
+
+    footer {
+      border-top: 1px solid #1b2940; padding: 35px 0;
+      color: #8190a6; text-align: center;
+    }
+
+    @media (max-width: 800px) {
+      .grid, .articles, .toolbox, .experiment { grid-template-columns: 1fr; }
+      .links { display: none; }
+      section { padding: 55px 0; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <a class="logo" href="#top">NEURO<span>LAB</span></a>
+      <div class="links">
+        <a href="#works">Работы</a>
+        <a href="#tools">Инструменты</a>
+        <a href="#experiments">Эксперименты</a>
+        <a href="#knowledge">Знания</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="container">
+      <div class="badge">🧠 ЛАБОРАТОРИЯ ИСКУССТВЕННОГО ИНТЕЛЛЕКТА</div>
+      <h1>NEUROLAB</h1>
+      <p>Место, где искусственный интеллект превращает идеи в изображения, видео, технологии и фантастические миры.</p>
+      <div class="buttons">
+        <a class="btn primary" href="#tools">Попробовать инструменты</a>
+        <a class="btn" href="#experiments">Смотреть эксперименты</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="works">
+    <div class="container">
+      <h2 class="section-title">Что здесь есть?</h2>
+      <p class="section-subtitle">NEUROLAB постепенно превращается из портфолио в полезную AI-платформу.</p>
+      <div class="grid">
+        <div class="card"><div class="icon">🎬</div><h3>AI-работы</h3><p>Изображения, короткие фильмы, визуальные эксперименты и фантастические миры.</p></div>
+        <div class="card"><div class="icon">🛠️</div><h3>AI-инструменты</h3><p>Небольшие бесплатные инструменты для идей, промптов и создания контента.</p></div>
+        <div class="card"><div class="icon">📚</div><h3>База знаний</h3><p>Понятные статьи о нейросетях, AI-видео, промптах и современных технологиях.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tools">
+    <div class="container">
+      <h2 class="section-title">🛠️ Лаборатория инструментов</h2>
+      <p class="section-subtitle">Первый простой инструмент уже работает прямо в браузере.</p>
+      <div class="toolbox">
+        <div class="tool">
+          <h3>💡 Генератор идей для AI-видео</h3>
+          <p>Нажми кнопку — лаборатория предложит случайную концепцию.</p>
+          <button onclick="generateIdea()">Сгенерировать идею</button>
+          <div id="ideaResult">Готов к эксперименту...</div>
+        </div>
+        <div class="tool">
+          <h3>✍️ Черновик промпта</h3>
+          <p>Введи тему будущего видео.</p>
+          <input id="topic" placeholder="Например: город 2500 года">
+          <button onclick="makePrompt()">Создать промпт</button>
+          <div id="promptResult" class="prompt" style="display:none"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experiments">
+    <div class="container">
+      <h2 class="section-title">🔬 Эксперимент №001</h2>
+      <p class="section-subtitle">Как может выглядеть город будущего?</p>
+      <div class="experiment">
+        <div class="visual">🌐</div>
+        <div>
+          <h2>Город 2500 года</h2>
+          <p style="color:#aebbd0;margin-top:10px;">Небоскрёбы, автономный транспорт, чистая энергия и искусственный интеллект, управляющий инфраструктурой города.</p>
+          <div class="prompt">cinematic futuristic megacity, year 2500, photorealistic, bright daylight, advanced AI technology, ultra detailed</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="knowledge">
+    <div class="container">
+      <h2 class="section-title">📚 База знаний</h2>
+      <p class="section-subtitle">Будущие статьи NEUROLAB.</p>
+      <div class="articles">
+        <article class="article"><small>AI • ГАЙД</small><h3>Как писать хорошие промпты</h3><p>Разберём, из каких частей состоит сильный промпт и как получать более предсказуемый результат.</p></article>
+        <article class="article"><small>AI • ВИДЕО</small><h3>Как создавать AI-видео</h3><p>От идеи и изображения до движения, монтажа и публикации.</p></article>
+        <article class="article"><small>БУДУЩЕЕ</small><h3>Изобретение 2500 года</h3><p>Фантастические технологии, которые однажды могут стать реальностью.</p></article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <strong>NEUROLAB</strong> — лаборатория будущего 🧠<br>
+    <span>Сайт находится в разработке.</span>
+  </div>
+</footer>
+
+<script>
+  const ideas = [
+    "Город, который меняет архитектуру в зависимости от настроения жителей.",
+    "Робот-исследователь обнаруживает древнюю цивилизацию на Марсе.",
+    "Телефон будущего без экрана, управляемый мыслями.",
+    "Карманный климат: устройство создаёт идеальную погоду вокруг человека.",
+    "Дверь, которая мгновенно переносит человека в любую точку Земли.",
+    "Зеркало памяти, способное показывать события из прошлого.",
+    "Безразмерный рюкзак с внутренним пространством размером с комнату."
+  ];
+
+  function generateIdea() {
+    const idea = ideas[Math.floor(Math.random() * ideas.length)];
+    document.getElementById("ideaResult").textContent = "💡 " + idea;
+  }
+
+  function makePrompt() {
+    const topic = document.getElementById("topic").value.trim();
+    const box = document.getElementById("promptResult");
+    if (!topic) {
+      box.style.display = "block";
+      box.textContent = "Сначала напиши тему 🙂";
+      return;
+    }
+    box.style.display = "block";
+    box.textContent =
+      "Cinematic photorealistic scene about " + topic +
+      ", futuristic atmosphere, realistic lighting, highly detailed, dynamic composition, 4K, professional cinematography";
+  }
+</script>
+
+</body>
+</html>
