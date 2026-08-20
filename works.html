@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>AI-работы — NEUROLAB</title>
+
+  <meta
+    name="description"
+    content="AI-работы NEUROLAB — изображения, видео и визуальные эксперименты."
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #070b14;
+      color: #eef4ff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(7, 11, 20, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #1b2940;
+    }
+
+    nav {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .logo span {
+      color: #65d9ff;
+    }
+
+    .back {
+      color: #aebbd0;
+      transition: 0.2s;
+    }
+
+    .back:hover {
+      color: #65d9ff;
+    }
+
+    .hero {
+      padding: 80px 0 55px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 50% 20%, #15355c 0, transparent 35%),
+        radial-gradient(circle at 80% 80%, #25124b 0, transparent 30%);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 7px 14px;
+      border: 1px solid #29486c;
+      border-radius: 999px;
+      color: #65d9ff;
+      background: #0c1625;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(40px, 7vw, 70px);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      color: #aebbd0;
+      font-size: 18px;
+    }
+
+    section {
+      padding: 55px 0 80px;
+    }
+
+    .section-title {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      color: #8f9eb4;
+      margin-bottom: 28px;
+    }
+
+    .works {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .work {
+      background: linear-gradient(145deg, #0e1726, #0a111d);
+      border: 1px solid #1c2b41;
+      border-radius: 18px;
+      overflow: hidden;
+      transition: 0.2s;
+    }
+
+    .work:hover {
+      transform: translateY(-4px);
+      border-color: #3c7095;
+    }
+
+    .work-image {
+      height: 220px;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 50% 50%, #173c60, #080e18 65%);
+      font-size: 70px;
+    }
+
+    .work-content {
+      padding: 20px;
+    }
+
+    .work small {
+      color: #65d9ff;
+    }
+
+    .work h3 {
+      margin: 7px 0;
+      font-size: 21px;
+    }
+
+    .work p {
+      color: #96a5bb;
+    }
+
+    footer {
+      border-top: 1px solid #1b2940;
+      padding: 35px 0;
+      color: #8190a6;
+      text-align: center;
+    }
+
+    @media (max-width: 800px) {
+      .works {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 45px 0 60px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+
+        <a class="logo" href="index.html">
+          NEURO<span>LAB</span>
+        </a>
+
+        <a class="back" href="index.html">
+          ← На главную
+        </a>
+
+      </nav>
+    </div>
+  </header>
+
+
+  <main>
+
+    <section class="hero">
+      <div class="container">
+
+        <div class="badge">
+          🎬 AI-РАБОТЫ
+        </div>
+
+        <h1>AI-работы</h1>
+
+        <p>
+          Изображения, видео и визуальные эксперименты,
+          созданные с помощью искусственного интеллекта.
+        </p>
+
+      </div>
+    </section>
+
+
+    <section>
+      <div class="container">
+
+        <h2 class="section-title">
+          Последние работы
+        </h2>
+
+        <p class="section-subtitle">
+          Визуальные эксперименты NEUROLAB.
+        </p>
+
+
+        <div class="works">
+
+          <article class="work">
+
+            <div class="work-image">
+              🚪
+            </div>
+
+            <div class="work-content">
+
+              <small>AI • КОНЦЕПТ</small>
+
+              <h3>
+                Дверь мгновенного перемещения
+              </h3>
+
+              <p>
+                Концепция устройства, способного
+                мгновенно переносить человека
+                в любую точку мира.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="work">
+
+            <div class="work-image">
+              🧤
+            </div>
+
+            <div class="work-content">
+
+              <small>AI • ИЗОБРЕТЕНИЕ</small>
+
+              <h3>
+                Перчатка будущего
+              </h3>
+
+              <p>
+                Фантастическая технология,
+                позволяющая взаимодействовать
+                с окружающим пространством.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="work">
+
+            <div class="work-image">
+              🌆
+            </div>
+
+            <div class="work-content">
+
+              <small>AI • БУДУЩЕЕ</small>
+
+              <h3>
+                Город 2500 года
+              </h3>
+
+              <p>
+                Футуристический мегаполис,
+                управляемый искусственным интеллектом.
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer>
+    <div class="container">
+
+      <strong>NEUROLAB</strong>
+      — лаборатория будущего 🧠
+
+      <br>
+
+      <span>
+        AI-работы и визуальные эксперименты.
+      </span>
+
+    </div>
+  </footer>
+
+</body>
+</html>
