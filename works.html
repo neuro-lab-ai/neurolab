@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
   >
 
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -35,24 +37,33 @@
     }
 
     .container {
-      width: min(1120px, 92%);
+      width: min(1180px, 92%);
       margin: auto;
     }
+
+
+    /* =========================
+       HEADER
+    ========================= */
 
     header {
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 20;
+
       background: rgba(7, 11, 20, 0.88);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(14px);
+
       border-bottom: 1px solid #1b2940;
     }
 
     nav {
-      min-height: 70px;
+      min-height: 72px;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       gap: 20px;
     }
 
@@ -75,120 +86,418 @@
       color: #65d9ff;
     }
 
+
+    /* =========================
+       HERO
+    ========================= */
+
     .hero {
-      padding: 80px 0 55px;
+      position: relative;
+
+      padding: 110px 0 90px;
+
       text-align: center;
+
+      overflow: hidden;
+
       background:
-        radial-gradient(circle at 50% 20%, #15355c 0, transparent 35%),
-        radial-gradient(circle at 80% 80%, #25124b 0, transparent 30%);
+        radial-gradient(
+          circle at 50% 15%,
+          #15355c 0,
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at 80% 80%,
+          #25124b 0,
+          transparent 30%
+        );
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 420px;
+      height: 420px;
+
+      left: 50%;
+      top: 30px;
+
+      transform: translateX(-50%);
+
+      border-radius: 50%;
+
+      background: #2c8ab8;
+
+      opacity: 0.06;
+
+      filter: blur(70px);
+
+      pointer-events: none;
     }
 
     .badge {
       display: inline-block;
-      padding: 7px 14px;
+
+      padding: 8px 15px;
+
       border: 1px solid #29486c;
+
       border-radius: 999px;
+
       color: #65d9ff;
+
       background: #0c1625;
-      font-size: 14px;
-      margin-bottom: 20px;
+
+      font-size: 13px;
+
+      letter-spacing: 0.5px;
+
+      margin-bottom: 22px;
     }
 
-    h1 {
-      font-size: clamp(40px, 7vw, 70px);
+    .hero h1 {
+      position: relative;
+
+      font-size: clamp(45px, 8vw, 82px);
+
       line-height: 1;
-      margin-bottom: 20px;
+
+      margin-bottom: 22px;
+
+      letter-spacing: -2px;
     }
 
     .hero p {
-      max-width: 700px;
+      position: relative;
+
+      max-width: 720px;
+
       margin: auto;
+
       color: #aebbd0;
-      font-size: 18px;
+
+      font-size: 19px;
     }
 
-    section {
-      padding: 55px 0 80px;
+
+    /* =========================
+       FILTERS
+    ========================= */
+
+    .filters {
+      display: flex;
+
+      justify-content: center;
+
+      gap: 10px;
+
+      flex-wrap: wrap;
+
+      margin-top: 35px;
     }
 
-    .section-title {
-      font-size: 34px;
-      margin-bottom: 10px;
-    }
+    .filter {
+      padding: 9px 17px;
 
-    .section-subtitle {
-      color: #8f9eb4;
-      margin-bottom: 28px;
-    }
+      border-radius: 999px;
 
-    .works {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
+      border: 1px solid #293a52;
 
-    .work {
-      background: linear-gradient(145deg, #0e1726, #0a111d);
-      border: 1px solid #1c2b41;
-      border-radius: 18px;
-      overflow: hidden;
+      background: #0d1624;
+
+      color: #aebbd0;
+
+      cursor: pointer;
+
       transition: 0.2s;
     }
 
-    .work:hover {
-      transform: translateY(-4px);
-      border-color: #3c7095;
+    .filter:hover,
+    .filter.active {
+      background: #65d9ff;
+
+      color: #06101b;
+
+      border-color: #65d9ff;
     }
 
-    .work-image {
-      height: 220px;
-      display: grid;
-      place-items: center;
-      background:
-        radial-gradient(circle at 50% 50%, #173c60, #080e18 65%);
-      font-size: 70px;
+
+    /* =========================
+       GALLERY
+    ========================= */
+
+    .gallery-section {
+      padding: 75px 0 100px;
     }
+
+    .section-heading {
+      margin-bottom: 30px;
+    }
+
+    .section-heading h2 {
+      font-size: 34px;
+
+      margin-bottom: 8px;
+    }
+
+    .section-heading p {
+      color: #8f9eb4;
+    }
+
+    .gallery {
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 22px;
+    }
+
+
+    /* =========================
+       WORK CARD
+    ========================= */
+
+    .work {
+      position: relative;
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          145deg,
+          #0e1726,
+          #0a111d
+        );
+
+      border: 1px solid #1c2b41;
+
+      border-radius: 20px;
+
+      transition:
+        transform 0.25s,
+        border-color 0.25s,
+        box-shadow 0.25s;
+    }
+
+    .work:hover {
+      transform: translateY(-7px);
+
+      border-color: #3c7095;
+
+      box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.3);
+    }
+
+
+    /* =========================
+       VISUAL PLACEHOLDER
+    ========================= */
+
+    .visual {
+      height: 260px;
+
+      display: grid;
+
+      place-items: center;
+
+      font-size: 80px;
+
+      position: relative;
+
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 50% 45%,
+          #204d70,
+          #080e18 68%
+        );
+    }
+
+    .visual::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        linear-gradient(
+          135deg,
+          transparent,
+          rgba(101, 217, 255, 0.08),
+          transparent
+        );
+
+      transform: translateX(-100%);
+
+      transition: 0.5s;
+    }
+
+    .work:hover .visual::after {
+      transform: translateX(100%);
+    }
+
+
+    /* =========================
+       CARD CONTENT
+    ========================= */
 
     .work-content {
-      padding: 20px;
+      padding: 22px;
     }
 
-    .work small {
+    .category {
       color: #65d9ff;
+
+      font-size: 12px;
+
+      font-weight: 700;
+
+      letter-spacing: 1px;
     }
 
     .work h3 {
-      margin: 7px 0;
-      font-size: 21px;
+      font-size: 22px;
+
+      margin: 7px 0 9px;
     }
 
     .work p {
       color: #96a5bb;
+
+      font-size: 15px;
     }
+
+    .open {
+      display: inline-block;
+
+      margin-top: 17px;
+
+      color: #65d9ff;
+
+      font-weight: 700;
+
+      font-size: 14px;
+    }
+
+
+    /* =========================
+       BOTTOM CTA
+    ========================= */
+
+    .cta {
+      margin-top: 70px;
+
+      padding: 45px 30px;
+
+      text-align: center;
+
+      border: 1px solid #1c2b41;
+
+      border-radius: 22px;
+
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          #15355c,
+          transparent 60%
+        ),
+        #0b1320;
+    }
+
+    .cta h2 {
+      font-size: 30px;
+
+      margin-bottom: 10px;
+    }
+
+    .cta p {
+      max-width: 620px;
+
+      margin: auto;
+
+      color: #96a5bb;
+    }
+
+    .cta-button {
+      display: inline-block;
+
+      margin-top: 22px;
+
+      padding: 12px 20px;
+
+      border-radius: 11px;
+
+      background: #65d9ff;
+
+      color: #06101b;
+
+      font-weight: 700;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
       border-top: 1px solid #1b2940;
+
       padding: 35px 0;
+
       color: #8190a6;
+
       text-align: center;
     }
 
-    @media (max-width: 800px) {
-      .works {
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+    }
+
+    @media (max-width: 600px) {
+
+      .gallery {
         grid-template-columns: 1fr;
       }
 
-      section {
-        padding: 45px 0 60px;
+      .hero {
+        padding: 80px 0 65px;
       }
+
+      .gallery-section {
+        padding: 55px 0 70px;
+      }
+
     }
+
   </style>
+
 </head>
+
 
 <body>
 
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
   <header>
+
     <div class="container">
+
       <nav>
 
         <a class="logo" href="index.html">
@@ -200,103 +509,171 @@
         </a>
 
       </nav>
+
     </div>
+
   </header>
 
 
-  <main>
 
-    <section class="hero">
-      <div class="container">
+  <!-- =========================
+       HERO
+  ========================= -->
 
-        <div class="badge">
-          🎬 AI-РАБОТЫ
-        </div>
+  <section class="hero">
 
-        <h1>AI-работы</h1>
+    <div class="container">
 
-        <p>
-          Изображения, видео и визуальные эксперименты,
-          созданные с помощью искусственного интеллекта.
-        </p>
+      <div class="badge">
+        🎬 ВИЗУАЛЬНАЯ ЛАБОРАТОРИЯ
+      </div>
+
+      <h1>
+        AI-работы
+      </h1>
+
+      <p>
+        Изображения, видео и визуальные эксперименты,
+        созданные в лаборатории NEUROLAB
+        с помощью искусственного интеллекта.
+      </p>
+
+
+      <div class="filters">
+
+        <button class="filter active">
+          Все
+        </button>
+
+        <button class="filter">
+          Изображения
+        </button>
+
+        <button class="filter">
+          Видео
+        </button>
+
+        <button class="filter">
+          Концепты
+        </button>
 
       </div>
-    </section>
+
+    </div>
+
+  </section>
 
 
-    <section>
+
+  <!-- =========================
+       GALLERY
+  ========================= -->
+
+  <main>
+
+    <section class="gallery-section">
+
       <div class="container">
 
-        <h2 class="section-title">
-          Последние работы
-        </h2>
 
-        <p class="section-subtitle">
-          Визуальные эксперименты NEUROLAB.
-        </p>
+        <div class="section-heading">
+
+          <h2>
+            Избранные работы
+          </h2>
+
+          <p>
+            Первые визуальные эксперименты NEUROLAB.
+          </p>
+
+        </div>
 
 
-        <div class="works">
+
+        <div class="gallery">
+
+
+          <!-- WORK 1 -->
 
           <article class="work">
 
-            <div class="work-image">
+            <div class="visual">
               🚪
             </div>
 
             <div class="work-content">
 
-              <small>AI • КОНЦЕПТ</small>
+              <div class="category">
+                AI • КОНЦЕПТ
+              </div>
 
               <h3>
                 Дверь мгновенного перемещения
               </h3>
 
               <p>
-                Концепция устройства, способного
-                мгновенно переносить человека
-                в любую точку мира.
+                Фантастическая технология,
+                позволяющая мгновенно
+                перемещаться между точками мира.
               </p>
+
+              <a href="#" class="open">
+                Открыть проект →
+              </a>
 
             </div>
 
           </article>
 
 
+
+          <!-- WORK 2 -->
+
           <article class="work">
 
-            <div class="work-image">
+            <div class="visual">
               🧤
             </div>
 
             <div class="work-content">
 
-              <small>AI • ИЗОБРЕТЕНИЕ</small>
+              <div class="category">
+                AI • ИЗОБРЕТЕНИЕ
+              </div>
 
               <h3>
                 Перчатка будущего
               </h3>
 
               <p>
-                Фантастическая технология,
-                позволяющая взаимодействовать
-                с окружающим пространством.
+                Концепт необычного устройства,
+                созданного для взаимодействия
+                человека с окружающим пространством.
               </p>
+
+              <a href="#" class="open">
+                Открыть проект →
+              </a>
 
             </div>
 
           </article>
 
 
+
+          <!-- WORK 3 -->
+
           <article class="work">
 
-            <div class="work-image">
+            <div class="visual">
               🌆
             </div>
 
             <div class="work-content">
 
-              <small>AI • БУДУЩЕЕ</small>
+              <div class="category">
+                AI • БУДУЩЕЕ
+              </div>
 
               <h3>
                 Город 2500 года
@@ -304,35 +681,178 @@
 
               <p>
                 Футуристический мегаполис,
-                управляемый искусственным интеллектом.
+                где инфраструктурой управляет
+                искусственный интеллект.
               </p>
+
+              <a href="#" class="open">
+                Открыть проект →
+              </a>
 
             </div>
 
           </article>
 
+
+
+          <!-- WORK 4 -->
+
+          <article class="work">
+
+            <div class="visual">
+              🤖
+            </div>
+
+            <div class="work-content">
+
+              <div class="category">
+                AI • РОБОТЫ
+              </div>
+
+              <h3>
+                Робот-исследователь
+              </h3>
+
+              <p>
+                Концепт автономного робота
+                для исследования неизвестных миров.
+              </p>
+
+              <a href="#" class="open">
+                Открыть проект →
+              </a>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- WORK 5 -->
+
+          <article class="work">
+
+            <div class="visual">
+              🌌
+            </div>
+
+            <div class="work-content">
+
+              <div class="category">
+                AI • МИРЫ
+              </div>
+
+              <h3>
+                Неизвестный мир
+              </h3>
+
+              <p>
+                Визуальный эксперимент
+                с фантастическим пространством
+                и необычной архитектурой.
+              </p>
+
+              <a href="#" class="open">
+                Открыть проект →
+              </a>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- WORK 6 -->
+
+          <article class="work">
+
+            <div class="visual">
+              🧠
+            </div>
+
+            <div class="work-content">
+
+              <div class="category">
+                AI • ЭКСПЕРИМЕНТ
+              </div>
+
+              <h3>
+                Нейронное пространство
+              </h3>
+
+              <p>
+                Экспериментальная визуализация
+                пространства, созданного
+                искусственным интеллектом.
+              </p>
+
+              <a href="#" class="open">
+                Открыть проект →
+              </a>
+
+            </div>
+
+          </article>
+
+
         </div>
 
+
+
+        <!-- CTA -->
+
+        <div class="cta">
+
+          <h2>
+            NEUROLAB продолжает экспериментировать
+          </h2>
+
+          <p>
+            Здесь будут появляться новые изображения,
+            видео, концепты и необычные эксперименты
+            с искусственным интеллектом.
+          </p>
+
+          <a href="index.html" class="cta-button">
+            ← Вернуться на главную
+          </a>
+
+        </div>
+
+
       </div>
+
     </section>
 
   </main>
 
 
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
   <footer>
+
     <div class="container">
 
-      <strong>NEUROLAB</strong>
+      <strong>
+        NEUROLAB
+      </strong>
+
       — лаборатория будущего 🧠
 
       <br>
 
       <span>
-        AI-работы и визуальные эксперименты.
+        Визуальные эксперименты с искусственным интеллектом.
       </span>
 
     </div>
+
   </footer>
 
+
 </body>
+
 </html>
