@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>База знаний — NEUROLAB</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #05070d;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Кнопка назад */
+
+        .back-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 13px 24px;
+            border-radius: 12px;
+
+            background: rgba(124,92,255,0.15);
+            border: 1px solid rgba(124,92,255,0.45);
+
+            color: #ffffff;
+            text-decoration: none;
+
+            font-size: 16px;
+            font-weight: 600;
+
+            transition: 0.25s ease;
+        }
+
+        .back-button:hover {
+            background: rgba(124,92,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Шапка */
+
+        header {
+            padding: 25px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #7c5cff;
+        }
+
+        /* Главный блок */
+
+        .hero {
+            text-align: center;
+            padding: 65px 20px 40px;
+        }
+
+        .hero-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            color: #9ca3af;
+            font-size: 17px;
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Поиск */
+
+        .search-box {
+            max-width: 700px;
+            margin: 0 auto 45px;
+        }
+
+        .search-box input {
+            width: 100%;
+
+            padding: 17px 20px;
+
+            border-radius: 14px;
+
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.12);
+
+            color: white;
+            font-size: 16px;
+
+            outline: none;
+        }
+
+        .search-box input::placeholder {
+            color: #6b7280;
+        }
+
+        .search-box input:focus {
+            border-color: rgba(124,92,255,0.6);
+        }
+
+        /* Заголовки секций */
+
+        .section-title {
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        /* Категории */
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-bottom: 65px;
+        }
+
+        .category {
+            padding: 25px;
+
+            border-radius: 18px;
+
+            background: linear-gradient(
+                145deg,
+                rgba(124,92,255,0.12),
+                rgba(255,255,255,0.03)
+            );
+
+            border: 1px solid rgba(255,255,255,0.09);
+
+            transition: 0.25s ease;
+        }
+
+        .category:hover {
+            transform: translateY(-4px);
+            border-color: rgba(124,92,255,0.5);
+        }
+
+        .category-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .category h3 {
+            font-size: 19px;
+            margin-bottom: 9px;
+        }
+
+        .category p {
+            color: #9ca3af;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        /* Материалы */
+
+        .articles {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+
+            padding-bottom: 70px;
+        }
+
+        .article {
+            padding: 25px;
+
+            border-radius: 18px;
+
+            background: rgba(255,255,255,0.035);
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            transition: 0.25s ease;
+        }
+
+        .article:hover {
+            transform: translateY(-4px);
+            border-color: rgba(124,92,255,0.4);
+        }
+
+        .article-tag {
+            display: inline-block;
+
+            padding: 6px 10px;
+
+            border-radius: 8px;
+
+            background: rgba(124,92,255,0.14);
+
+            color: #b9adff;
+
+            font-size: 12px;
+
+            margin-bottom: 14px;
+        }
+
+        .article h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .article p {
+            color: #9ca3af;
+            line-height: 1.55;
+        }
+
+        /* Подвал */
+
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.08);
+
+            padding: 25px 0;
+
+            text-align: center;
+
+            color: #6b7280;
+
+            font-size: 14px;
+        }
+
+        /* Телефон */
+
+        @media (max-width: 800px) {
+
+            .categories {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .hero {
+                padding-top: 50px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .categories,
+            .articles {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="container">
+
+        <div class="logo">
+            NEURO<span>LAB</span>
+        </div>
+
+    </div>
+
+</header>
+
+
+<main>
+
+    <div class="container">
+
+        <a href="index.html" class="back-button">
+            ← На главную
+        </a>
+
+    </div>
+
+
+    <section class="hero">
+
+        <div class="hero-icon">
+            📚
+        </div>
+
+        <h1>
+            База знаний
+        </h1>
+
+        <p>
+            Исследования, объяснения и полезные материалы
+            об искусственном интеллекте и технологиях будущего.
+        </p>
+
+    </section>
+
+
+    <section class="container">
+
+
+        <!-- Поиск -->
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                placeholder="🔎 Поиск по базе знаний..."
+            >
+
+        </div>
+
+
+        <!-- Категории -->
+
+        <h2 class="section-title">
+            Категории
+        </h2>
+
+
+        <div class="categories">
+
+
+            <div class="category">
+
+                <div class="category-icon">
+                    🧠
+                </div>
+
+                <h3>
+                    Искусственный интеллект
+                </h3>
+
+                <p>
+                    Нейросети, технологии и основы
+                    искусственного интеллекта.
+                </p>
+
+            </div>
+
+
+            <div class="category">
+
+                <div class="category-icon">
+                    🎨
+                </div>
+
+                <h3>
+                    Генерация изображений
+                </h3>
+
+                <p>
+                    Создание изображений и работа
+                    с визуальными нейросетями.
+                </p>
+
+            </div>
+
+
+            <div class="category">
+
+                <div class="category-icon">
+                    🎬
+                </div>
+
+                <h3>
+                    AI-видео
+                </h3>
+
+                <p>
+                    Генерация видео, анимация,
+                    движение и визуальные эффекты.
+                </p>
+
+            </div>
+
+
+            <div class="category">
+
+                <div class="category-icon">
+                    ✍️
+                </div>
+
+                <h3>
+                    Промпты
+                </h3>
+
+                <p>
+                    Как правильно общаться
+                    с нейросетями и получать результат.
+                </p>
+
+            </div>
+
+
+            <div class="category">
+
+                <div class="category-icon">
+                    🤖
+                </div>
+
+                <h3>
+                    AI-инструменты
+                </h3>
+
+                <p>
+                    Обзоры интересных нейросетей
+                    и полезных AI-сервисов.
+                </p>
+
+            </div>
+
+
+            <div class="category">
+
+                <div class="category-icon">
+                    🚀
+                </div>
+
+                <h3>
+                    Технологии будущего
+                </h3>
+
+                <p>
+                    Роботы, новые технологии,
+                    изобретения и концепции будущего.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- Материалы -->
+
+        <h2 class="section-title">
+            Последние материалы
+        </h2>
+
+
+        <div class="articles">
+
+
+            <div class="article">
+
+                <div class="article-tag">
+                    AI-видео
+                </div>
+
+                <h3>
+                    Как создаются AI-видео
+                </h3>
+
+                <p>
+                    Разбираемся, как искусственный интеллект
+                    превращает текст и изображения в видео.
+                </p>
+
+            </div>
+
+
+            <div class="article">
+
+                <div class="article-tag">
+                    Промпты
+                </div>
+
+                <h3>
+                    Как правильно писать промпты
+                </h3>
+
+                <p>
+                    Основные принципы создания понятных
+                    и эффективных запросов для нейросетей.
+                </p>
+
+            </div>
+
+
+            <div class="article">
+
+                <div class="article-tag">
+                    Изображения
+                </div>
+
+                <h3>
+                    Как создавать реалистичные изображения
+                </h3>
+
+                <p>
+                    Что влияет на результат генерации
+                    и как добиться нужного визуального стиля.
+                </p>
+
+            </div>
+
+
+            <div class="article">
+
+                <div class="article-tag">
+                    Будущее
+                </div>
+
+                <h3>
+                    Какими могут быть технологии 2500 года?
+                </h3>
+
+                <p>
+                    Фантастические технологии, которые
+                    сегодня выглядят невозможными.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <div class="container">
+
+        🧠 NEUROLAB — лаборатория технологий будущего
+
+    </div>
+
+</footer>
+
+
+</body>
+</html>
